@@ -1,5 +1,19 @@
-console.log("hey from index.ts file");
+import express from "express";
+import { ENV } from "./config/env";
+const app = express();
 
-const num1: number = 5;
-const num2: number = 10;
-console.log(num1 + num2);
+app.get("/", (req, res) => {
+  res.json({
+    message:
+      "Welcome to Productify API - Powered by PostgreSQL, Drizzle ORM & Clerk Auth",
+    endpoints: {
+      users: "/api/users",
+      products: "/api/products",
+      comments: "/api/comments",
+    },
+  });
+});
+
+app.listen(ENV.PORT, () =>
+  console.log(`Server are listen on Port:${ENV.PORT}`),
+);
