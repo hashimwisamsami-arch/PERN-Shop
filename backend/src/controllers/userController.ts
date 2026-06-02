@@ -6,7 +6,7 @@ export async function syncUser(req: Request, res: Response) {
   try {
     const { userId } = getAuth(req);
     if (!userId) {
-      return res.status(401).json({ error: "You Are anAuth" });
+      return res.status(401).json({ error: "Unauthorized" });
     }
     const { email, name, imageUrl } = req.body;
     if (!email || !name || !imageUrl) {
