@@ -68,6 +68,7 @@ const CreatePage = () => {
             {formData.imageUrl && (
               <div className="rounded-box overflow-hidden">
                 <img
+                  key={formData.imageUrl}
                   src={formData.imageUrl}
                   alt="Preview"
                   className="w-full h-40 object-cover"
