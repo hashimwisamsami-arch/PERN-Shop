@@ -11,7 +11,7 @@ import {
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const { data: products, isLoading } = useMyProducts();
+  const { data: products = [], isLoading, isError } = useMyProducts();
   const deleteProduct = useDeleteProduct();
 
   const handleDelete = (id) => {
@@ -19,6 +19,9 @@ const ProfilePage = () => {
   };
 
   if (isLoading) return <LoadingSpinner />;
+  if (isError) {
+    return <div className="alert alert-error">Failed to load products.</div>;
+  }
 
   return (
     <div className="space-y-6">

@@ -43,6 +43,7 @@ const CommentsSection = ({ productId, comments = [], currentUserId }) => {
           <button
             type="submit"
             className="btn btn-primary btn-sm btn-square"
+            aria-label="Post comment"
             disabled={createComment.isPending || !content.trim()}
           >
             {createComment.isPending ? (
@@ -99,6 +100,7 @@ const CommentsSection = ({ productId, comments = [], currentUserId }) => {
                       deleteComment.mutate({ commentId: comment.id })
                     }
                     className="btn btn-ghost btn-xs text-error"
+                    aria-label="Delete comment"
                     disabled={deleteComment.isPending}
                   >
                     {deleteComment.isPending ? (
